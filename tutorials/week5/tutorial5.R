@@ -33,13 +33,4 @@ lapply(c(),  pkgTest)
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 
-#####################
-# Problem 1
-#####################
 
-set.seed(123)
-# create empirical distribution of observed data
-ECDF <- ecdf(data)
-empiricalCDF <- ECDF(data)
-# generate test statistic
-D <- max(abs(empiricalCDF - pnorm(data)))

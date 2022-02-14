@@ -96,15 +96,14 @@ $$p(D \leq x) \frac{\sqrt {2\pi}}{x} \sum _{k=1}^{\infty }e^{-(2k-1)^{2}\pi ^{2}
 \noindent which generally requires approximation methods (see \href{https://core.ac.uk/download/pdf/25787785.pdf}{Marsaglia, Tsang, and Wang 2003}). This so-called non-parametric test (this label comes from the fact that the distribution of the test statistic does not depend on the distribution of the data being tested) performs poorly in small samples, but works well in a simulation environment. Write an \texttt{R} function that implements this test where the reference distribution is normal. Using \texttt{R} generate 1,000 Cauchy random variables (\texttt{rcauchy(1000, location = 0, scale = 1)}) and perform the test (remember, use the same seed, something like \texttt{set.seed(123)}, whenever you're generating your own data).\\
 	
 	
-\noindent Write an \texttt{R} function that implements this test where the reference distribution is normal. As a hint, you can create the empirical distribution and theoretical CDF using this code:
+\noindent As a hint, you can create the empirical distribution and theoretical CDF using this code:
 
 \begin{lstlisting}[language=R]
 	# create empirical distribution of observed data
 	ECDF <- ecdf(data)
 	empiricalCDF <- ECDF(data)
 	# generate test statistic
-	D <- max(abs(empiricalCDF - pnorm(empirical))) 
-\end{lstlisting}
+	D <- max(abs(empiricalCDF - pnorm(data))) \end{lstlisting}
 
 
 
